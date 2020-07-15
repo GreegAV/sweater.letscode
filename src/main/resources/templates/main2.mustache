@@ -6,16 +6,24 @@
 </head>
 <body>
 <div>
+    <form action="/logout" method="post">
+        <input type="submit" value="Sign Out"/>
+        <input type="hidden" name="_csrf" value="{{_csrf.mustache}}"/>
+    </form>
+</div>
+<div>
     <form method="post">
         <input type="text" name="text" placeholder="Enter Mustache"/>
         <input type="text" name="tag" placeholder="Enter tag"/>
         <button type="submit">Add message</button>
+        <input type="hidden" name="_csrf" value="{{_csrf.mustache}}"/>
     </form>
 </div>
 <div>Список сообщений</div>
 <form method="post" action="filter2">
     <input type="text" name="filter">
     <button type="submit">Найти</button>
+    <input type="hidden" name="_csrf" value="{{_csrf.mustache}}"/>
 </form>
 {{#messages}}
     <div>
